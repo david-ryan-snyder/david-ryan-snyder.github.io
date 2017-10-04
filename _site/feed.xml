@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.0">Jekyll</generator><link href="https://david-ryan-snyder.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://david-ryan-snyder.github.io//" rel="alternate" type="text/html" /><updated>2017-10-04T17:36:14-04:00</updated><id>https://david-ryan-snyder.github.io//</id><title type="html">David Snyder</title><subtitle></subtitle><entry><title type="html">NIST SRE 2016 Xvector Recipe</title><link href="https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2.html" rel="alternate" type="text/html" title="NIST SRE 2016 Xvector Recipe" /><published>2017-10-04T00:14:28-04:00</published><updated>2017-10-04T00:14:28-04:00</updated><id>https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2</id><content type="html" xml:base="https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2.html">&lt;p&gt;We added our version of DNN speaker embeddings to the main branch of &lt;a href=&quot;http://kaldi-asr.org/&quot;&gt;Kaldi&lt;/a&gt;.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.0">Jekyll</generator><link href="https://david-ryan-snyder.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://david-ryan-snyder.github.io//" rel="alternate" type="text/html" /><updated>2017-10-04T17:49:31-04:00</updated><id>https://david-ryan-snyder.github.io//</id><title type="html">David Snyder</title><subtitle></subtitle><entry><title type="html">NIST SRE 2016 Xvector Recipe</title><link href="https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2.html" rel="alternate" type="text/html" title="NIST SRE 2016 Xvector Recipe" /><published>2017-10-04T00:14:28-04:00</published><updated>2017-10-04T00:14:28-04:00</updated><id>https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2</id><content type="html" xml:base="https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2.html">&lt;p&gt;We added our version of DNN speaker embeddings to the main branch of &lt;a href=&quot;http://kaldi-asr.org/&quot; target=&quot;_blank&quot;&gt;Kaldi&lt;/a&gt;.
 We’re releasing it with a “bare bones” NIST SRE 2016 recipe to demonstrate the system.
-See the &lt;a href=&quot;https://github.com/kaldi-asr/kaldi/pull/1896/&quot;&gt;pull request&lt;/a&gt; for more details.&lt;/p&gt;
+See the &lt;a href=&quot;https://github.com/kaldi-asr/kaldi/pull/1896/&quot; target=&quot;_blank&quot;&gt;pull request&lt;/a&gt; for more details.&lt;/p&gt;
 
 &lt;p&gt;The system, built for speaker recognition, consists of a feedforward DNN with a statistics pooling layer.
 It is trained to classify a list of speakers using a multiclass cross entropy objective.
@@ -8,17 +8,17 @@ In the future, this will probably be extended to include “same vs different”
 After training, the last few layers of the network are removed,
 and variable-length utterances are mapped to fixed-dimensional embeddings that are used in a PLDA backend (like ivectors).
 We’re calling these embeddings “xvectors” in Kaldi speaker recognition recipes.
-This is based on &lt;a href=&quot;http://www.danielpovey.com/files/2017_interspeech_embeddings.pdf&quot;&gt;Deep Neural Network Embeddings for Text-Independent Speaker Verification&lt;/a&gt;
+This is based on &lt;a href=&quot;http://www.danielpovey.com/files/2017_interspeech_embeddings.pdf&quot; target=&quot;_blank&quot;&gt;Deep Neural Network Embeddings for Text-Independent Speaker Verification&lt;/a&gt;
 but includes recent enhancements not found in that paper, such as data augmentation.
 Look for a more up-to-date paper describing this system in ICASSP 2018.&lt;/p&gt;
 
 &lt;h2 id=&quot;pretrained-model&quot;&gt;Pretrained Model&lt;/h2&gt;
-&lt;p&gt;We’re releasing a pretrained model on kaldi-asr.org &lt;a href=&quot;http://kaldi-asr.org/models.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We’re releasing a pretrained model on kaldi-asr.org &lt;a href=&quot;http://kaldi-asr.org/models.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The tar.gz contains files generated from the recipe in egs/sre16/v2/.
 It’s contents should be placed in a similar directory, with access to
 sid/, steps/, etc. This was created when the Kaldi master branch was at git
-log &lt;a href=&quot;https://github.com/kaldi-asr/kaldi/commit/e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b&quot;&gt;e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b&lt;/a&gt;.&lt;/p&gt;
+log &lt;a href=&quot;https://github.com/kaldi-asr/kaldi/commit/e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b&quot; target=&quot;_blank&quot;&gt;e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;files-list&quot;&gt;Files list&lt;/h1&gt;
 

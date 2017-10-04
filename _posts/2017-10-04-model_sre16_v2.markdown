@@ -3,9 +3,9 @@ layout: post
 title:  "NIST SRE 2016 Xvector Recipe"
 date:   2017-10-04 00:14:28 -0400
 ---
-We added our version of DNN speaker embeddings to the main branch of [Kaldi][kaldi].
+We added our version of DNN speaker embeddings to the main branch of [Kaldi][kaldi]{:target="_blank"}.
 We're releasing it with a "bare bones" NIST SRE 2016 recipe to demonstrate the system.
-See the [pull request][xvector-pr] for more details.
+See the [pull request][xvector-pr]{:target="_blank"} for more details.
 
 The system, built for speaker recognition, consists of a feedforward DNN with a statistics pooling layer.
 It is trained to classify a list of speakers using a multiclass cross entropy objective.
@@ -13,18 +13,18 @@ In the future, this will probably be extended to include "same vs different" tra
 After training, the last few layers of the network are removed,
 and variable-length utterances are mapped to fixed-dimensional embeddings that are used in a PLDA backend (like ivectors).
 We're calling these embeddings "xvectors" in Kaldi speaker recognition recipes.
-This is based on [Deep Neural Network Embeddings for Text-Independent Speaker Verification][interspeech2017]
+This is based on [Deep Neural Network Embeddings for Text-Independent Speaker Verification][interspeech2017]{:target="_blank"}
 but includes recent enhancements not found in that paper, such as data augmentation.
 Look for a more up-to-date paper describing this system in ICASSP 2018.
 
 Pretrained Model
 --------
-We're releasing a pretrained model on kaldi-asr.org [here][pretrained-model].
+We're releasing a pretrained model on kaldi-asr.org [here][pretrained-model]{:target="_blank"}.
 
 The tar.gz contains files generated from the recipe in egs/sre16/v2/.
 It's contents should be placed in a similar directory, with access to
 sid/, steps/, etc. This was created when the Kaldi master branch was at git
-log [e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b][commit-id].
+log [e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b][commit-id]{:target="_blank"}.
 
 
 # Files list
