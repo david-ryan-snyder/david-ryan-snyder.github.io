@@ -3,12 +3,12 @@ layout: post
 title:  "NIST SRE 2016 Xvector Recipe"
 date:   2017-10-04 00:14:28 -0400
 ---
-We added our version of DNN speaker embeddings to the main branch of [Kaldi][kaldi]{:target="_blank"}.
-We're releasing it with a "bare bones" NIST SRE 2016 recipe to demonstrate the system.
+The DNN speaker embeddings are now supported in the main branch of [Kaldi][kaldi]{:target="_blank"}.
+We've also added a "bare bones" NIST SRE 2016 recipe to demonstrate the system.
 See the [pull request][xvector-pr]{:target="_blank"} for more details.
 
-The system, built for speaker recognition, consists of a feedforward DNN with a statistics pooling layer.
-It is trained to classify a list of speakers using a multiclass cross entropy objective.
+The system, built for speaker recognition, consists of a TDNN with a statistics pooling layer.
+It's trained to classify a list of speakers using a multiclass cross entropy objective.
 In the future, this will probably be extended to include "same vs different" training.
 After training, the last few layers of the network are removed,
 and variable-length utterances are mapped to fixed-dimensional embeddings that are used in a PLDA backend (like ivectors).
@@ -19,10 +19,10 @@ Look for a more up-to-date paper describing this system in ICASSP 2018.
 
 Pretrained Model
 --------
-We're releasing a pretrained model on kaldi-asr.org [here][pretrained-model]{:target="_blank"}.
+We've uploaded a pretrained model on [kaldi-asr.org][pretrained-model]{:target="_blank"}.
 
-The tar.gz contains files generated from the recipe in egs/sre16/v2/.
-It's contents should be placed in a similar directory, with access to
+The archive 0003_sre16_v2_1a.tar.gz contains files generated from the recipe in egs/sre16/v2/.
+It's contents should be placed in a similar directory, with symbolic links to
 sid/, steps/, etc. This was created when the Kaldi master branch was at git
 log [e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b][commit-id]{:target="_blank"}.
 
@@ -88,7 +88,7 @@ The xvector DNN was trained on the following corpora:
 
 # Results
 
-The models should produce results similar to this on SRE16.
+The models should produce results similar to the following on SRE16.
 The acoustic ivector system is included for reference (see egs/sre16/v1).
 Note that the PLDA backend used here is still fairly basic.  Results for both
 the ivector and xvector systems will improve with more sophisticated adaptation

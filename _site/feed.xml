@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.0">Jekyll</generator><link href="https://david-ryan-snyder.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://david-ryan-snyder.github.io//" rel="alternate" type="text/html" /><updated>2017-10-04T17:49:31-04:00</updated><id>https://david-ryan-snyder.github.io//</id><title type="html">David Snyder</title><subtitle></subtitle><entry><title type="html">NIST SRE 2016 Xvector Recipe</title><link href="https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2.html" rel="alternate" type="text/html" title="NIST SRE 2016 Xvector Recipe" /><published>2017-10-04T00:14:28-04:00</published><updated>2017-10-04T00:14:28-04:00</updated><id>https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2</id><content type="html" xml:base="https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2.html">&lt;p&gt;We added our version of DNN speaker embeddings to the main branch of &lt;a href=&quot;http://kaldi-asr.org/&quot; target=&quot;_blank&quot;&gt;Kaldi&lt;/a&gt;.
-We’re releasing it with a “bare bones” NIST SRE 2016 recipe to demonstrate the system.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.0">Jekyll</generator><link href="https://david-ryan-snyder.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://david-ryan-snyder.github.io//" rel="alternate" type="text/html" /><updated>2017-10-05T00:41:09-04:00</updated><id>https://david-ryan-snyder.github.io//</id><title type="html">David Snyder</title><subtitle></subtitle><entry><title type="html">NIST SRE 2016 Xvector Recipe</title><link href="https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2.html" rel="alternate" type="text/html" title="NIST SRE 2016 Xvector Recipe" /><published>2017-10-04T00:14:28-04:00</published><updated>2017-10-04T00:14:28-04:00</updated><id>https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2</id><content type="html" xml:base="https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2.html">&lt;p&gt;The DNN speaker embeddings are now supported in the main branch of &lt;a href=&quot;http://kaldi-asr.org/&quot; target=&quot;_blank&quot;&gt;Kaldi&lt;/a&gt;.
+We’ve also added a “bare bones” NIST SRE 2016 recipe to demonstrate the system.
 See the &lt;a href=&quot;https://github.com/kaldi-asr/kaldi/pull/1896/&quot; target=&quot;_blank&quot;&gt;pull request&lt;/a&gt; for more details.&lt;/p&gt;
 
-&lt;p&gt;The system, built for speaker recognition, consists of a feedforward DNN with a statistics pooling layer.
-It is trained to classify a list of speakers using a multiclass cross entropy objective.
+&lt;p&gt;The system, built for speaker recognition, consists of a TDNN with a statistics pooling layer.
+It’s trained to classify a list of speakers using a multiclass cross entropy objective.
 In the future, this will probably be extended to include “same vs different” training.
 After training, the last few layers of the network are removed,
 and variable-length utterances are mapped to fixed-dimensional embeddings that are used in a PLDA backend (like ivectors).
@@ -13,10 +13,10 @@ but includes recent enhancements not found in that paper, such as data augmentat
 Look for a more up-to-date paper describing this system in ICASSP 2018.&lt;/p&gt;
 
 &lt;h2 id=&quot;pretrained-model&quot;&gt;Pretrained Model&lt;/h2&gt;
-&lt;p&gt;We’re releasing a pretrained model on kaldi-asr.org &lt;a href=&quot;http://kaldi-asr.org/models.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We’ve uploaded a pretrained model on &lt;a href=&quot;http://kaldi-asr.org/models.html&quot; target=&quot;_blank&quot;&gt;kaldi-asr.org&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The tar.gz contains files generated from the recipe in egs/sre16/v2/.
-It’s contents should be placed in a similar directory, with access to
+&lt;p&gt;The archive 0003_sre16_v2_1a.tar.gz contains files generated from the recipe in egs/sre16/v2/.
+It’s contents should be placed in a similar directory, with symbolic links to
 sid/, steps/, etc. This was created when the Kaldi master branch was at git
 log &lt;a href=&quot;https://github.com/kaldi-asr/kaldi/commit/e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b&quot; target=&quot;_blank&quot;&gt;e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b&lt;/a&gt;.&lt;/p&gt;
 
@@ -79,7 +79,7 @@ log &lt;a href=&quot;https://github.com/kaldi-asr/kaldi/commit/e082c17d4a8f8a791
 
 &lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
 
-&lt;p&gt;The models should produce results similar to this on SRE16.
+&lt;p&gt;The models should produce results similar to the following on SRE16.
 The acoustic ivector system is included for reference (see egs/sre16/v1).
 Note that the PLDA backend used here is still fairly basic.  Results for both
 the ivector and xvector systems will improve with more sophisticated adaptation
@@ -99,7 +99,7 @@ and score normalization.&lt;/p&gt;
   pages={999--1003},
   year={2017}
  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">We added our version of DNN speaker embeddings to the main branch of Kaldi. We’re releasing it with a “bare bones” NIST SRE 2016 recipe to demonstrate the system. See the pull request for more details.</summary></entry><entry><title type="html">Template</title><link href="https://david-ryan-snyder.github.io//jekyll/update/2017/09/26/template.html" rel="alternate" type="text/html" title="Template" /><published>2017-09-26T00:14:28-04:00</published><updated>2017-09-26T00:14:28-04:00</updated><id>https://david-ryan-snyder.github.io//jekyll/update/2017/09/26/template</id><content type="html" xml:base="https://david-ryan-snyder.github.io//jekyll/update/2017/09/26/template.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">The DNN speaker embeddings are now supported in the main branch of Kaldi. We’ve also added a “bare bones” NIST SRE 2016 recipe to demonstrate the system. See the pull request for more details.</summary></entry><entry><title type="html">Template</title><link href="https://david-ryan-snyder.github.io//jekyll/update/2017/09/26/template.html" rel="alternate" type="text/html" title="Template" /><published>2017-09-26T00:14:28-04:00</published><updated>2017-09-26T00:14:28-04:00</updated><id>https://david-ryan-snyder.github.io//jekyll/update/2017/09/26/template</id><content type="html" xml:base="https://david-ryan-snyder.github.io//jekyll/update/2017/09/26/template.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
