@@ -11,25 +11,16 @@
               {{ site.title | escape }}
             {% endif %}
             </li>
-            {% if site.email %}
-            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {% endif %}
         </ul>
       </div>
 
       <div class="footer-col footer-col-3">
         <ul class="social-media-list">
-          {% if site.github_username %}
           <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
+		<a href="mailto:david.ryan.snyder@gmail.com" title="Email"><i class="fa fa-envelope-square fa-2x"></i></a>
+		<a href="https://scholar.google.com/citations?user=4t0gVU8AAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar-square ai-2x"></i></a>
+		<a href="https://github.com/david-ryan-snyder" target="_blank" title="Github"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://linkedin.com/in/david-snyder-81852b48/" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
         </ul>
       </div>
     </div>
