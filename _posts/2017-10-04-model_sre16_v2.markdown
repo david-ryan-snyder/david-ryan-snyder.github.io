@@ -13,9 +13,8 @@ In the future, this will probably be extended to include "same vs different" tra
 After training, the last few layers of the network are removed,
 and variable-length utterances are mapped to fixed-dimensional embeddings that are used in a PLDA backend (like ivectors).
 We're calling these embeddings "xvectors" in Kaldi speaker recognition recipes.
-This is based on [Deep Neural Network Embeddings for Text-Independent Speaker Verification][interspeech2017]{:target="_blank"}
-but includes recent enhancements not found in that paper, such as data augmentation.
-Look for a more up-to-date paper describing this system in ICASSP 2018.
+This is based on ["X-vectors: Robust DNN Embeddings for Speaker Recognition"][ICASSP2018]{:target="_blank"} which
+was persented at ICASSP 2018.
 
 Pretrained Model
 --------
@@ -104,16 +103,19 @@ and score normalization.
  If you want to use the pretrained model in a paper, please cite as:
 
 ```
- @article{snyder2017xvector,
-  title={Deep Neural Network Embeddings for Text-Independent Speaker Verification},
-  author={Snyder, David and Garcia-Romero, Daniel and Povey, Daniel and Khudanpur, Sanjeev},
-  journal={Proc. Interspeech 2017},
-  pages={999--1003},
-  year={2017}
- }
+@inproceedings{snyder2018xvector,
+  title={X-vectors: Robust DNN Embeddings for Speaker Recognition},
+  author={Snyder, D. and Garcia-Romero, D. and Sell, G. and Povey, D. and Khudanpur, S.},
+  booktitle={2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year={2018},
+  organization={IEEE},
+  url={http://www.danielpovey.com/files/2018_icassp_xvectors.pdf}
+}
 ```
+
 [kaldi]: http://kaldi-asr.org/
 [interspeech2017]: http://www.danielpovey.com/files/2017_interspeech_embeddings.pdf
+[ICASSP2018]: http://www.danielpovey.com/files/2018_icassp_xvectors.pdf
 [xvector-pr]: https://github.com/kaldi-asr/kaldi/pull/1896/
 [pretrained-model]: http://kaldi-asr.org/models.html
 [commit-id]: https://github.com/kaldi-asr/kaldi/commit/e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b
