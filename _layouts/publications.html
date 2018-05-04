@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Publications</h1>
+  
+	<ul class="post-list publications">
+	{% for publication in site.data.publications %}
+	  <li>
+		<div class="publication-title">{{ publication.paper_title }}</div>
+		<div class="post-meta">{{ publication.author_list}}</div>
+                <div class="show-abstract"><a href="#">Read abstract</a></div>
+		<div class="publication-abstract hidden">{{ publication.abstract_text }}</div>
+                <div class="publication-links">
+			<ul>
+				{% if publication.pdf_link %}
+				<li><a href={{ publication.pdf_link }} title="PDF Link"><i class="fa fa-file-pdf-o"></i></a></li>
+				{% endif %}
+				{% if publication.code_link %}
+				<li><a href={{ publication.code_link }} title="Code Link"><i class="fa fa-file-code-o"></i></a></li>
+				{% endif %}
+				{% if publication.slides_link %}
+				<li><a href={{ publication.slides_link }} title="Slides Link"><i class="fa fa-file-powerpoint-o"></i></a></li>
+				{% endif %}
+				{% if publication.poster_link %}
+				<li><a href={{ publication.poster_link }} title="Poster Link"><i class="fa fa-tv"></i></a></li>
+				{% endif %}
+				{% if publication.video_link %}
+				<li><a href={{ publication.video_link }} title="Video Link"><i class="fa fa-film"></i></a></li>
+				{% endif %}
+			</ul>
+                </div>
+	  </li>
+	{% endfor %}
+	</ul>
+
+</div>
+
+<script>
+$(document).ready(function(){
+    //$(".publication-abstract").hide();
+    //$("#hide").click(function(){
+    //    $("p").hide();
+    //});
+    $(".show-abstract").click(function(){
+      $(".show-abstract").hide();
+      $(".publication-abstract").removeClass("hidden");
+    });
+});
+</script>
+
