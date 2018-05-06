@@ -1,0 +1,123 @@
+---
+layout: post
+title:  "Callhome diarization recipe using x-vectors"
+date:   2018-05-04 00:14:28 -0400
+---
+The DNN speaker embeddings are now supported in the main branch of [Kaldi][kaldi]{:target="_blank"}.
+We've also added a "bare bones" NIST SRE 2016 recipe to demonstrate the system.
+See the [pull request][xvector-pr]{:target="_blank"} for more details.
+
+The system, built for speaker recognition, consists of a TDNN with a statistics pooling layer.
+It's trained to classify a list of speakers using a multiclass cross entropy objective.
+In the future, this will probably be extended to include "same vs different" training.
+After training, the last few layers of the network are removed,
+and variable-length utterances are mapped to fixed-dimensional embeddings that are used in a PLDA backend (like ivectors).
+We're calling these embeddings "xvectors" in Kaldi speaker recognition recipes.
+This is based on ["X-vectors: Robust DNN Embeddings for Speaker Recognition"][ICASSP2018]{:target="_blank"} which
+was persented at ICASSP 2018.
+
+Pretrained Model
+--------
+We've uploaded a pretrained model on [kaldi-asr.org][pretrained-model]{:target="_blank"}.
+
+The archive 0003_sre16_v2_1a.tar.gz contains files generated from the recipe in egs/sre16/v2/.
+It's contents should be placed in a similar directory, with symbolic links to
+sid/, steps/, etc. This was created when the Kaldi master branch was at git
+log [e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b][commit-id]{:target="_blank"}.
+
+
+# Files list
+
+```
+ ./
+     README.txt               This file
+     run.sh                   The recipe that was in egs/sre16/v2/run.sh
+
+ local/nnet3/xvector/tuning/
+     run_xvector_1a.sh        Generated the configs, egs, and trained the model
+
+ conf/
+     vad.conf                 Energy VAD configration
+     mfcc.conf                MFCC configuration
+
+ exp/xvector_nnet_1a/
+     final.raw                The pretrained model
+     nnet.config              An nnet3 config file for instantiating the model
+     extract.config           An nnet3 config file for extracting xvectors
+     min_chunk_size           Min chunk size used (see extract_xvectors.sh)
+     max_chunk_size           Max chunk size used (see extract_xvectors.sh)
+     srand                    The RNG seed used
+
+ exp/xvectors_sre_combined/
+     mean.vec                 Vector for centering, from augmented SRE 04-10
+     plda                     PLDA model, trained on augmented SRE 04-10
+     transform.mat            LDA matrix, trained on augmented SRE 04-10
+
+ exp/xvectors_sre16_major/
+     mean.vec                 Vector for centering, from SRE16 major
+     plda_adapt               The first PLDA model, adapted to SRE16 major
+```
+# Training Data
+
+The xvector DNN was trained on the following corpora:
+
+```
+     Corpus              LDC Catalog No.
+     SWBD2 Phase 1       LDC98S75
+     SWBD2 Phase 2       LDC99S79
+     SWBD2 Phase 3       LDC2002S06
+     SWBD Cellular 1     LDC2001S13
+     SWBD Cellular 2     LDC2004S07
+     SRE2004             LDC2006S44
+     SRE2005 Train       LDC2011S01
+     SRE2005 Test        LDC2011S04
+     SRE2006 Train       LDC2011S09
+     SRE2006 Test 1      LDC2011S10
+     SRE2006 Test 2      LDC2012S01
+     SRE2008 Train       LDC2011S05
+     SRE2008 Test        LDC2011S08
+     SRE2010 Eval        LDC2017S06
+     Mixer 6             LDC2013S03
+
+ The following datasets were used in data augmentation.
+
+     MUSAN               http://www.openslr.org/17
+     RIR_NOISES          http://www.openslr.org/28
+```
+
+# Results
+
+The models should produce results similar to the following on SRE16.
+The acoustic ivector system is included for reference (see egs/sre16/v1).
+Note that the PLDA backend used here is still fairly basic.  Results for both
+the ivector and xvector systems will improve with more sophisticated adaptation
+and score normalization.
+```
+  xvector              EER: Pooled 8.57%, Tagalog 12.29%, Cantonese 4.89%
+  ivector (from ../v1) EER: Pooled 12.98%, Tagalog 17.8%, Cantonese 8.35%
+```
+
+
+# Citation
+
+ If you want to use the pretrained model in a paper, please cite as:
+
+```
+@inproceedings{snyder2018xvector,
+  title={X-vectors: Robust DNN Embeddings for Speaker Recognition},
+  author={Snyder, D. and Garcia-Romero, D. and Sell, G. and Povey, D. and Khudanpur, S.},
+  booktitle={2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year={2018},
+  organization={IEEE},
+  url={http://www.danielpovey.com/files/2018_icassp_xvectors.pdf}
+}
+```
+
+[kaldi]: http://kaldi-asr.org/
+[callhome_diarization_v1]: https://github.com/kaldi-asr/kaldi/tree/master/egs/callhome_diarization/v1 
+[callhome_diarization_v2]: https://github.com/kaldi-asr/kaldi/tree/master/egs/callhome_diarization/v2
+[xvector-pr]: https://github.com/kaldi-asr/kaldi/pull/2391
+[ICASSP2018]: http://www.danielpovey.com/files/2018_icassp_xvectors.pdf
+[xvector-pr]: https://github.com/kaldi-asr/kaldi/pull/1896/
+[pretrained-model]: http://kaldi-asr.org/models.html
+[commit-id]: https://github.com/kaldi-asr/kaldi/commit/080129e97a7effccc48a2234b1fc9f511ce52d57
