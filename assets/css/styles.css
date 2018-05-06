@@ -43,3 +43,28 @@
 {
    display: none
 }
+
+.publication-abstract {
+    padding: 20px;
+}
+
+.publication-summary {
+    padding-left: 10px;
+}
+
+.show-abstract span {
+    cursor: pointer;
+    color: blue;
+    font-size: 14px;
+}
+
+.close-abstract span {
+    cursor: pointer;
+    color: #c50000;
+    font-size: 14px;
+}
+
+.journal {
+    font-size: 14px;
+}
+
