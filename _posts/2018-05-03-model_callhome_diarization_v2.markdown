@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "NIST SRE 2016 Xvector Recipe"
-date:   2017-10-04 00:14:28 -0400
+title:  "Callhome diarization recipe using x-vectors"
+date:   2018-05-04 00:14:28 -0400
 ---
 The DNN speaker embeddings are now supported in the main branch of [Kaldi][kaldi]{:target="_blank"}.
 We've also added a "bare bones" NIST SRE 2016 recipe to demonstrate the system.
@@ -114,8 +114,10 @@ and score normalization.
 ```
 
 [kaldi]: http://kaldi-asr.org/
-[interspeech2017]: http://www.danielpovey.com/files/2017_interspeech_embeddings.pdf
+[callhome_diarization_v1]: https://github.com/kaldi-asr/kaldi/tree/master/egs/callhome_diarization/v1 
+[callhome_diarization_v2]: https://github.com/kaldi-asr/kaldi/tree/master/egs/callhome_diarization/v2
+[xvector-pr]: https://github.com/kaldi-asr/kaldi/pull/2391
 [ICASSP2018]: http://www.danielpovey.com/files/2018_icassp_xvectors.pdf
 [xvector-pr]: https://github.com/kaldi-asr/kaldi/pull/1896/
 [pretrained-model]: http://kaldi-asr.org/models.html
-[commit-id]: https://github.com/kaldi-asr/kaldi/commit/e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b
+[commit-id]: https://github.com/kaldi-asr/kaldi/commit/080129e97a7effccc48a2234b1fc9f511ce52d57

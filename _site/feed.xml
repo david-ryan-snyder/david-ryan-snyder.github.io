@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.0">Jekyll</generator><link href="https://david-ryan-snyder.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://david-ryan-snyder.github.io//" rel="alternate" type="text/html" /><updated>2017-10-11T21:15:15-04:00</updated><id>https://david-ryan-snyder.github.io//</id><title type="html">David Snyder</title><subtitle></subtitle><entry><title type="html">NIST SRE 2016 Xvector Recipe</title><link href="https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2.html" rel="alternate" type="text/html" title="NIST SRE 2016 Xvector Recipe" /><published>2017-10-04T00:14:28-04:00</published><updated>2017-10-04T00:14:28-04:00</updated><id>https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2</id><content type="html" xml:base="https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2.html">&lt;p&gt;The DNN speaker embeddings are now supported in the main branch of &lt;a href=&quot;http://kaldi-asr.org/&quot; target=&quot;_blank&quot;&gt;Kaldi&lt;/a&gt;.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-05-05T22:31:24-04:00</updated><id>http://localhost:4000/</id><title type="html">David Snyder</title><subtitle></subtitle><entry><title type="html">Callhome diarization recipe using x-vectors</title><link href="http://localhost:4000/2018/05/04/model_callhome_diarization_v2.html" rel="alternate" type="text/html" title="Callhome diarization recipe using x-vectors" /><published>2018-05-04T00:14:28-04:00</published><updated>2018-05-04T00:14:28-04:00</updated><id>http://localhost:4000/2018/05/04/model_callhome_diarization_v2</id><content type="html" xml:base="http://localhost:4000/2018/05/04/model_callhome_diarization_v2.html">&lt;p&gt;The DNN speaker embeddings are now supported in the main branch of &lt;a href=&quot;http://kaldi-asr.org/&quot; target=&quot;_blank&quot;&gt;Kaldi&lt;/a&gt;.
 We’ve also added a “bare bones” NIST SRE 2016 recipe to demonstrate the system.
 See the &lt;a href=&quot;https://github.com/kaldi-asr/kaldi/pull/1896/&quot; target=&quot;_blank&quot;&gt;pull request&lt;/a&gt; for more details.&lt;/p&gt;
 
@@ -8,9 +8,109 @@ In the future, this will probably be extended to include “same vs different”
 After training, the last few layers of the network are removed,
 and variable-length utterances are mapped to fixed-dimensional embeddings that are used in a PLDA backend (like ivectors).
 We’re calling these embeddings “xvectors” in Kaldi speaker recognition recipes.
-This is based on &lt;a href=&quot;http://www.danielpovey.com/files/2017_interspeech_embeddings.pdf&quot; target=&quot;_blank&quot;&gt;Deep Neural Network Embeddings for Text-Independent Speaker Verification&lt;/a&gt;
-but includes recent enhancements not found in that paper, such as data augmentation.
-Look for a more up-to-date paper describing this system in ICASSP 2018.&lt;/p&gt;
+This is based on &lt;a href=&quot;http://www.danielpovey.com/files/2018_icassp_xvectors.pdf&quot; target=&quot;_blank&quot;&gt;“X-vectors: Robust DNN Embeddings for Speaker Recognition”&lt;/a&gt; which
+was persented at ICASSP 2018.&lt;/p&gt;
+
+&lt;h2 id=&quot;pretrained-model&quot;&gt;Pretrained Model&lt;/h2&gt;
+&lt;p&gt;We’ve uploaded a pretrained model on &lt;a href=&quot;http://kaldi-asr.org/models.html&quot; target=&quot;_blank&quot;&gt;kaldi-asr.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The archive 0003_sre16_v2_1a.tar.gz contains files generated from the recipe in egs/sre16/v2/.
+It’s contents should be placed in a similar directory, with symbolic links to
+sid/, steps/, etc. This was created when the Kaldi master branch was at git
+log &lt;a href=&quot;https://github.com/kaldi-asr/kaldi/commit/080129e97a7effccc48a2234b1fc9f511ce52d57&quot; target=&quot;_blank&quot;&gt;e082c17d4a8f8a791428ae4d9f7ceb776aef3f0b&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;files-list&quot;&gt;Files list&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ./
+     README.txt               This file
+     run.sh                   The recipe that was in egs/sre16/v2/run.sh
+
+ local/nnet3/xvector/tuning/
+     run_xvector_1a.sh        Generated the configs, egs, and trained the model
+
+ conf/
+     vad.conf                 Energy VAD configration
+     mfcc.conf                MFCC configuration
+
+ exp/xvector_nnet_1a/
+     final.raw                The pretrained model
+     nnet.config              An nnet3 config file for instantiating the model
+     extract.config           An nnet3 config file for extracting xvectors
+     min_chunk_size           Min chunk size used (see extract_xvectors.sh)
+     max_chunk_size           Max chunk size used (see extract_xvectors.sh)
+     srand                    The RNG seed used
+
+ exp/xvectors_sre_combined/
+     mean.vec                 Vector for centering, from augmented SRE 04-10
+     plda                     PLDA model, trained on augmented SRE 04-10
+     transform.mat            LDA matrix, trained on augmented SRE 04-10
+
+ exp/xvectors_sre16_major/
+     mean.vec                 Vector for centering, from SRE16 major
+     plda_adapt               The first PLDA model, adapted to SRE16 major
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h1 id=&quot;training-data&quot;&gt;Training Data&lt;/h1&gt;
+
+&lt;p&gt;The xvector DNN was trained on the following corpora:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     Corpus              LDC Catalog No.
+     SWBD2 Phase 1       LDC98S75
+     SWBD2 Phase 2       LDC99S79
+     SWBD2 Phase 3       LDC2002S06
+     SWBD Cellular 1     LDC2001S13
+     SWBD Cellular 2     LDC2004S07
+     SRE2004             LDC2006S44
+     SRE2005 Train       LDC2011S01
+     SRE2005 Test        LDC2011S04
+     SRE2006 Train       LDC2011S09
+     SRE2006 Test 1      LDC2011S10
+     SRE2006 Test 2      LDC2012S01
+     SRE2008 Train       LDC2011S05
+     SRE2008 Test        LDC2011S08
+     SRE2010 Eval        LDC2017S06
+     Mixer 6             LDC2013S03
+
+ The following datasets were used in data augmentation.
+
+     MUSAN               http://www.openslr.org/17
+     RIR_NOISES          http://www.openslr.org/28
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
+
+&lt;p&gt;The models should produce results similar to the following on SRE16.
+The acoustic ivector system is included for reference (see egs/sre16/v1).
+Note that the PLDA backend used here is still fairly basic.  Results for both
+the ivector and xvector systems will improve with more sophisticated adaptation
+and score normalization.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  xvector              EER: Pooled 8.57%, Tagalog 12.29%, Cantonese 4.89%
+  ivector (from ../v1) EER: Pooled 12.98%, Tagalog 17.8%, Cantonese 8.35%
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;citation&quot;&gt;Citation&lt;/h1&gt;
+
+&lt;p&gt;If you want to use the pretrained model in a paper, please cite as:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@inproceedings{snyder2018xvector,
+  title={X-vectors: Robust DNN Embeddings for Speaker Recognition},
+  author={Snyder, D. and Garcia-Romero, D. and Sell, G. and Povey, D. and Khudanpur, S.},
+  booktitle={2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year={2018},
+  organization={IEEE},
+  url={http://www.danielpovey.com/files/2018_icassp_xvectors.pdf}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">The DNN speaker embeddings are now supported in the main branch of Kaldi. We’ve also added a “bare bones” NIST SRE 2016 recipe to demonstrate the system. See the pull request for more details.</summary></entry><entry><title type="html">NIST SRE 2016 Xvector Recipe</title><link href="http://localhost:4000/2017/10/04/model_sre16_v2.html" rel="alternate" type="text/html" title="NIST SRE 2016 Xvector Recipe" /><published>2017-10-04T00:14:28-04:00</published><updated>2017-10-04T00:14:28-04:00</updated><id>http://localhost:4000/2017/10/04/model_sre16_v2</id><content type="html" xml:base="http://localhost:4000/2017/10/04/model_sre16_v2.html">&lt;p&gt;The DNN speaker embeddings are now supported in the main branch of &lt;a href=&quot;http://kaldi-asr.org/&quot; target=&quot;_blank&quot;&gt;Kaldi&lt;/a&gt;.
+We’ve also added a “bare bones” NIST SRE 2016 recipe to demonstrate the system.
+See the &lt;a href=&quot;https://github.com/kaldi-asr/kaldi/pull/1896/&quot; target=&quot;_blank&quot;&gt;pull request&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;p&gt;The system, built for speaker recognition, consists of a TDNN with a statistics pooling layer.
+It’s trained to classify a list of speakers using a multiclass cross entropy objective.
+In the future, this will probably be extended to include “same vs different” training.
+After training, the last few layers of the network are removed,
+and variable-length utterances are mapped to fixed-dimensional embeddings that are used in a PLDA backend (like ivectors).
+We’re calling these embeddings “xvectors” in Kaldi speaker recognition recipes.
+This is based on &lt;a href=&quot;http://www.danielpovey.com/files/2018_icassp_xvectors.pdf&quot; target=&quot;_blank&quot;&gt;“X-vectors: Robust DNN Embeddings for Speaker Recognition”&lt;/a&gt; which
+was persented at ICASSP 2018.&lt;/p&gt;
 
 &lt;h2 id=&quot;pretrained-model&quot;&gt;Pretrained Model&lt;/h2&gt;
 &lt;p&gt;We’ve uploaded a pretrained model on &lt;a href=&quot;http://kaldi-asr.org/models.html&quot; target=&quot;_blank&quot;&gt;kaldi-asr.org&lt;/a&gt;.&lt;/p&gt;
@@ -92,11 +192,24 @@ and score normalization.&lt;/p&gt;
 
 &lt;p&gt;If you want to use the pretrained model in a paper, please cite as:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; @article{snyder2017xvector,
-  title={Deep Neural Network Embeddings for Text-Independent Speaker Verification},
-  author={Snyder, David and Garcia-Romero, Daniel and Povey, Daniel and Khudanpur, Sanjeev},
-  journal={Proc. Interspeech 2017},
-  pages={999--1003},
-  year={2017}
- }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">The DNN speaker embeddings are now supported in the main branch of Kaldi. We’ve also added a “bare bones” NIST SRE 2016 recipe to demonstrate the system. See the pull request for more details.</summary></entry></feed>
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@inproceedings{snyder2018xvector,
+  title={X-vectors: Robust DNN Embeddings for Speaker Recognition},
+  author={Snyder, D. and Garcia-Romero, D. and Sell, G. and Povey, D. and Khudanpur, S.},
+  booktitle={2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year={2018},
+  organization={IEEE},
+  url={http://www.danielpovey.com/files/2018_icassp_xvectors.pdf}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">The DNN speaker embeddings are now supported in the main branch of Kaldi. We’ve also added a “bare bones” NIST SRE 2016 recipe to demonstrate the system. See the pull request for more details.</summary></entry><entry><title type="html">Template</title><link href="http://localhost:4000/jekyll/update/2017/09/26/template.html" rel="alternate" type="text/html" title="Template" /><published>2017-09-26T00:14:28-04:00</published><updated>2017-09-26T00:14:28-04:00</updated><id>http://localhost:4000/jekyll/update/2017/09/26/template</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/09/26/template.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>

@@ -20,10 +20,12 @@
   <meta name="description" content="The DNN speaker embeddings are now supported in the main branch of Kaldi. We’ve also added a “bare bones” NIST SRE 2016 recipe to demonstrate the system. See...">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="stylesheet" href="/assets/academicons-1.8.0/css/academicons.min.css">
-  <link rel="stylesheet" href="/assets/font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="canonical" href="https://david-ryan-snyder.github.io//2017/10/04/model_sre16_v2.html">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/fonts/academicons-1.8.0/css/academicons.min.css">
+  <link rel="stylesheet" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="canonical" href="http://localhost:4000/2017/10/04/model_sre16_v2.html">
   <link rel="alternate" type="application/rss+xml" title="David Snyder" href="/feed.xml">
+  <script src="/assets/js/jquery-3.2.1.min.js"></script>
 </head>
 
 
@@ -64,6 +66,11 @@
           
             
             
+            <a class="page-link" href="/publications/">Publications</a>
+            
+          
+            
+            
           
             
             
@@ -100,9 +107,8 @@ In the future, this will probably be extended to include “same vs different”
 After training, the last few layers of the network are removed,
 and variable-length utterances are mapped to fixed-dimensional embeddings that are used in a PLDA backend (like ivectors).
 We’re calling these embeddings “xvectors” in Kaldi speaker recognition recipes.
-This is based on <a href="http://www.danielpovey.com/files/2017_interspeech_embeddings.pdf" target="_blank">Deep Neural Network Embeddings for Text-Independent Speaker Verification</a>
-but includes recent enhancements not found in that paper, such as data augmentation.
-Look for a more up-to-date paper describing this system in ICASSP 2018.</p>
+This is based on <a href="http://www.danielpovey.com/files/2018_icassp_xvectors.pdf" target="_blank">“X-vectors: Robust DNN Embeddings for Speaker Recognition”</a> which
+was persented at ICASSP 2018.</p>
 
 <h2 id="pretrained-model">Pretrained Model</h2>
 <p>We’ve uploaded a pretrained model on <a href="http://kaldi-asr.org/models.html" target="_blank">kaldi-asr.org</a>.</p>
@@ -184,14 +190,16 @@ and score normalization.</p>
 
 <p>If you want to use the pretrained model in a paper, please cite as:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> @article{snyder2017xvector,
-  title={Deep Neural Network Embeddings for Text-Independent Speaker Verification},
-  author={Snyder, David and Garcia-Romero, Daniel and Povey, Daniel and Khudanpur, Sanjeev},
-  journal={Proc. Interspeech 2017},
-  pages={999--1003},
-  year={2017}
- }
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@inproceedings{snyder2018xvector,
+  title={X-vectors: Robust DNN Embeddings for Speaker Recognition},
+  author={Snyder, D. and Garcia-Romero, D. and Sell, G. and Povey, D. and Khudanpur, S.},
+  booktitle={2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year={2018},
+  organization={IEEE},
+  url={http://www.danielpovey.com/files/2018_icassp_xvectors.pdf}
+}
 </code></pre></div></div>
+
 
   </div>
 

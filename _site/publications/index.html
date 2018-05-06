@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108018655-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108018655-1');
+</script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Publications</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/fonts/academicons-1.8.0/css/academicons.min.css">
+  <link rel="stylesheet" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="canonical" href="http://localhost:4000/publications/">
+  <link rel="alternate" type="application/rss+xml" title="David Snyder" href="/feed.xml">
+  <script src="/assets/js/jquery-3.2.1.min.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">David Snyder</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/about/">About</a>
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/publications/">Publications</a>
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home">
+
+  <h1 class="page-heading">Publications</h1>
+  
+	<ul class="post-list publications">
+	
+	  <li>
+             <div class="publication-summary">
+		<div class="publication-title">X-vectors: Robust DNN Embeddings for Speaker Recognition</div>
+		<div class="post-meta">David Snyder, Daniel Garcia-Romero, Gregory Sell, Daniel Povey, Sanjeev Khudanpur</div>
+                <div class="journal">IEEE ICASSP 2018</div>
+                <div class="show-abstract-1 show-abstract"><span id=1>Read abstract</span></div>
+                <div class="close-abstract-1 close-abstract hidden"><span id=1>Close abstract</span></div>
+		<div class="publication-abstract-1 publication-abstract hidden">In this paper, we use data augmentation to improve performance of deep neural network (DNN) embeddings for speaker recognition. The DNN, which is trained to discriminate between speakers, maps variable-length utterances to fixed-dimensional embeddings that we call x-vectors. Prior studies have found that embeddings leverage large-scale training datasets better than i-vectors. However, it can be challenging to collect substantial quantities of labeled data for training. We use data augmentation, consisting of added noise and reverberation, as an inexpensive method to multiply the amount of training data and improve robustness. The x-vectors are compared with i-vector baselines on Speakers in the Wild and NIST SRE 2016 Cantonese. We find that while augmentation is beneficial in the PLDA classifier, it is not helpful in the i-vector extractor. However, the x-vector DNN effectively exploits data augmentation, due to its supervised training. As a result, the x-vectors achieve superior performance on the evaluation datasets.</div>
+             </div>
+                <div class="publication-links">
+			<ul>
+				
+				<li><a href=http://www.danielpovey.com/files/2018_icassp_xvectors.pdf target="_blank" title="PDF Link"><i class="fa fa-file-pdf-o"></i></a></li>
+				
+				
+				<li><a href=https://github.com/kaldi-asr/kaldi/tree/master/egs/sre16/v2 target="_blank" title="Code Link"><i class="fa fa-file-code-o"></i></a></li>
+				
+				
+				
+				
+				
+			</ul>
+                </div>
+	  </li>
+	
+	  <li>
+             <div class="publication-summary">
+		<div class="publication-title">Compressed time delay neural network for small-footprint keyword spotting</div>
+		<div class="post-meta">Ming Sun, David Snyder, Yixin Gao, Varun Nagaraja, Mike Rodehorst, Nikko Strom Panchapagesan, Spyros Matsoukas, Shiv Vitaladevuni</div>
+                <div class="journal">INTERSPEECH 2017</div>
+                <div class="show-abstract-2 show-abstract"><span id=2>Read abstract</span></div>
+                <div class="close-abstract-2 close-abstract hidden"><span id=2>Close abstract</span></div>
+		<div class="publication-abstract-2 publication-abstract hidden">In this paper we investigate a time delay neural network (TDNN) for a keyword spotting task that requires low CPU, memory and latency. The TDNN is trained with transfer learning and multi-task learning. Temporal subsampling enabled by the time delay architecture reduces computational complexity. We propose to apply singular value decomposition (SVD) to further reduce TDNN complexity. This allows us to first train a larger full-rank TDNN model which is not limited by CPU/memory constraints. The larger TDNN usually achieves better performance. Afterwards, its size can be compressed by SVD to meet the budget requirements. Hidden Markov models (HMM) are used in conjunction with the networks to perform keyword detection and performance is measured in terms of area under the curve (AUC) for detection error tradeoff (DET) curves. Our experimental results on a large in-house far-field corpus show that the full-rank TDNN achieves a 19.7% DET AUC reduction compared to a similar-size deep neural network (DNN) baseline. If we train a larger size full-rank TDNN first and then reduce it via SVD to the comparable size of the DNN, we obtain a 37.6% reduction in DET AUC compared to the DNN baseline.</div>
+             </div>
+                <div class="publication-links">
+			<ul>
+				
+				<li><a href=https://pdfs.semanticscholar.org/8eda/5fa7103406403a14342336c684b666dfdfc8.pdf target="_blank" title="PDF Link"><i class="fa fa-file-pdf-o"></i></a></li>
+				
+				
+				
+				
+				
+				
+			</ul>
+                </div>
+	  </li>
+	
+	  <li>
+             <div class="publication-summary">
+		<div class="publication-title">Deep Neural Network Embeddings for Text-Independent Speaker Verification</div>
+		<div class="post-meta">David Snyder, Daniel Garcia-Romero, Daniel Povey, Sanjeev Khudanpur</div>
+                <div class="journal">INTERSPEECH 2017</div>
+                <div class="show-abstract-3 show-abstract"><span id=3>Read abstract</span></div>
+                <div class="close-abstract-3 close-abstract hidden"><span id=3>Close abstract</span></div>
+		<div class="publication-abstract-3 publication-abstract hidden">This paper investigates replacing i-vectors for text-independent speaker verification with embeddings extracted from a feedforward deep neural network. Long-term speaker characteristics are captured in the network by a temporal pooling layer that aggregates over the input speech. This enables the network to be trained to discriminate between speakers from variable-length speech segments. After training, utterances are mapped directly to fixed-dimensional speaker embeddings and pairs of embeddings are scored using a PLDA-based backend. We compare performance with a traditional i-vector baseline on NIST SRE 2010 and 2016. We find that the embeddings outperform i-vectors for short speech segments and are competitive on long duration test conditions. Moreover, the two representations are complementary, and their fusion improves on the baseline at all operating points. Similar systems have recently shown promising results when trained on very large proprietary datasets, but to the best of our knowledge, these are the best results reported for speaker-discriminative neural networks when trained and tested on publicly available corpora.</div>
+             </div>
+                <div class="publication-links">
+			<ul>
+				
+				<li><a href=http://www.danielpovey.com/files/2017_interspeech_embeddings.pdf target="_blank" title="PDF Link"><i class="fa fa-file-pdf-o"></i></a></li>
+				
+				
+				
+				
+				
+				
+			</ul>
+                </div>
+	  </li>
+	
+	  <li>
+             <div class="publication-summary">
+		<div class="publication-title">Speaker Diarization using Deep Neural Network Embeddings</div>
+		<div class="post-meta">Daniel Garcia-Romero, David Snyder, Gregory Sell, Daniel Povey, Alan McCree</div>
+                <div class="journal">IEEE ICASSP 2017</div>
+                <div class="show-abstract-4 show-abstract"><span id=4>Read abstract</span></div>
+                <div class="close-abstract-4 close-abstract hidden"><span id=4>Close abstract</span></div>
+		<div class="publication-abstract-4 publication-abstract hidden">Speaker diarization is an important front-end for many speech technologies in the presence of multiple speakers, but current methods that employ i-vector clustering for short segments of speech are potentially too cumbersome and costly for the front-end role. In this work, we propose an alternative approach for learning representations via deep neural networks to remove the i-vector extraction process from the pipeline entirely. The proposed architecture simultaneously learns a fixed-dimensional embedding for acoustic segments of variable length and a scoring function for measuring the likelihood that the segments originated from the same or different speakers. Through tests on the CALLHOME conversational telephone speech corpus, we demonstrate that, in addition to streamlining the diarization architecture, the proposed system matches or exceeds the performance of state-of-the-art baselines. We also show that, though this approach does not respond as well to unsupervised calibration strategies as previous systems, the incorporation of well-founded speaker priors sufficiently mitigates this shortcoming.</div>
+             </div>
+                <div class="publication-links">
+			<ul>
+				
+				<li><a href=https://pdfs.semanticscholar.org/d3ed/25e32553e8a399bedc1850c90bf12e4e9d27.pdf target="_blank" title="PDF Link"><i class="fa fa-file-pdf-o"></i></a></li>
+				
+				
+				
+				
+				
+				
+			</ul>
+                </div>
+	  </li>
+	
+	  <li>
+             <div class="publication-summary">
+		<div class="publication-title">MUSAN: A Music, Speech, and Noise Corpus</div>
+		<div class="post-meta">David Snyder, Guoguo Chen, Daniel Povey</div>
+                <div class="journal">arXiv 2015</div>
+                <div class="show-abstract-5 show-abstract"><span id=5>Read abstract</span></div>
+                <div class="close-abstract-5 close-abstract hidden"><span id=5>Close abstract</span></div>
+		<div class="publication-abstract-5 publication-abstract hidden">This report introduces a new corpus of music, speech, and noise. This dataset is suitable for training models for voice activity detection (VAD) and music/speech discrimination. Our corpus is released under a flexible Creative Commons license. The dataset consists of music from several genres, speech from twelve languages, and a wide assortment of technical and non-technical noises. We demonstrate use of this corpus for music/speech discrimination on Broadcast news and VAD for speaker identification.</div>
+             </div>
+                <div class="publication-links">
+			<ul>
+				
+				<li><a href=http://arxiv.org/pdf/1510.08484v1.pdf target="_blank" title="PDF Link"><i class="fa fa-file-pdf-o"></i></a></li>
+				
+				
+				
+				
+				
+				
+				<li><a href=http://www.openslr.org/17/ target="_blank" title="Database Link"><i class="fa fa-database"></i></a></li>
+				
+			</ul>
+                </div>
+	  </li>
+	
+	  <li>
+             <div class="publication-summary">
+		<div class="publication-title">TIME DELAY DEEP NEURAL NETWORK-BASED UNIVERSAL BACKGROUND MODELS FOR SPEAKER RECOGNITION</div>
+		<div class="post-meta">David Snyder, Daniel Garcia-Romero, Daniel Povey</div>
+                <div class="journal">IEEE ASRU 2015</div>
+                <div class="show-abstract-6 show-abstract"><span id=6>Read abstract</span></div>
+                <div class="close-abstract-6 close-abstract hidden"><span id=6>Close abstract</span></div>
+		<div class="publication-abstract-6 publication-abstract hidden">Recently, deep neural networks (DNN) have been incorporated into i-vector-based speaker recognition systems, where they have significantly improved state-of-the-art performance. In these systems, a DNN is used to collect sufficient statistics for i-vector extraction. In this study, the DNN is a recently developed time delay deep neural network (TDNN) that has achieved promising results in LVCSR tasks. We believe that the TDNN-based system achieves the best reported results on SRE10 and it obtains a 50% relative improvement over our GMM baseline in terms of equal error rate (EER). For some applications, the computational cost of a DNN is high. Therefore, we also investigate a lightweight alternative in which a supervised GMM is derived from the TDNN posteriors. This method maintains the speed of the traditional unsupervised-GMM, but achieves a 20% relative improvement in EER.</div>
+             </div>
+                <div class="publication-links">
+			<ul>
+				
+				<li><a href=http://danielpovey.com/files/2015_asru_tdnn_ubm.pdf target="_blank" title="PDF Link"><i class="fa fa-file-pdf-o"></i></a></li>
+				
+				
+				<li><a href=https://github.com/kaldi-asr/kaldi/tree/master/egs/sre10 target="_blank" title="Code Link"><i class="fa fa-file-code-o"></i></a></li>
+				
+				
+				
+				
+				
+			</ul>
+                </div>
+	  </li>
+	
+	</ul>
+
+</div>
+
+<script>
+$(document).ready(function(){
+    $(".show-abstract span").click(function(){
+      let id = $(this).attr('id');
+      $(".show-abstract-" + id).hide();
+      $(".close-abstract-" + id).removeClass("hidden");
+      $(".publication-abstract-" + id).removeClass("hidden");
+    });
+    $(".close-abstract span").click(function(){
+      let id = $(this).attr('id');
+      $(".close-abstract-" + id).addClass("hidden");
+      $(".show-abstract-" + id).show();
+      $(".publication-abstract-" + id).addClass("hidden");
+    });
+});
+</script>
+
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              David Snyder
+            
+            </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="social-media-list">
+          <li>
+		<a href="mailto:david.ryan.snyder@gmail.com" title="Email"><i class="fa fa-envelope-square fa-2x"></i></a>
+		<a href="https://scholar.google.com/citations?user=4t0gVU8AAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar-square ai-2x"></i></a>
+		<a href="https://github.com/david-ryan-snyder" target="_blank" title="Github"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://linkedin.com/in/david-snyder-81852b48/" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
