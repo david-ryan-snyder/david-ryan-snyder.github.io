@@ -107,9 +107,8 @@ In the future, this will probably be extended to include “same vs different”
 After training, the last few layers of the network are removed,
 and variable-length utterances are mapped to fixed-dimensional embeddings that are used in a PLDA backend (like ivectors).
 We’re calling these embeddings “xvectors” in Kaldi speaker recognition recipes.
-This is based on <a href="http://www.danielpovey.com/files/2017_interspeech_embeddings.pdf" target="_blank">Deep Neural Network Embeddings for Text-Independent Speaker Verification</a>
-but includes recent enhancements not found in that paper, such as data augmentation.
-Look for a more up-to-date paper describing this system in ICASSP 2018.</p>
+This is based on <a href="http://www.danielpovey.com/files/2018_icassp_xvectors.pdf" target="_blank">“X-vectors: Robust DNN Embeddings for Speaker Recognition”</a> which
+was persented at ICASSP 2018.</p>
 
 <h2 id="pretrained-model">Pretrained Model</h2>
 <p>We’ve uploaded a pretrained model on <a href="http://kaldi-asr.org/models.html" target="_blank">kaldi-asr.org</a>.</p>
@@ -191,14 +190,16 @@ and score normalization.</p>
 
 <p>If you want to use the pretrained model in a paper, please cite as:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> @article{snyder2017xvector,
-  title={Deep Neural Network Embeddings for Text-Independent Speaker Verification},
-  author={Snyder, David and Garcia-Romero, Daniel and Povey, Daniel and Khudanpur, Sanjeev},
-  journal={Proc. Interspeech 2017},
-  pages={999--1003},
-  year={2017}
- }
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@inproceedings{snyder2018xvector,
+  title={X-vectors: Robust DNN Embeddings for Speaker Recognition},
+  author={Snyder, D. and Garcia-Romero, D. and Sell, G. and Povey, D. and Khudanpur, S.},
+  booktitle={2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year={2018},
+  organization={IEEE},
+  url={http://www.danielpovey.com/files/2018_icassp_xvectors.pdf}
+}
 </code></pre></div></div>
+
 
   </div>
 
