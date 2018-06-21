@@ -1,9 +1,79 @@
+- paper_title: "Diarization is Hard: Some Experiences and Lessons Learned for the JHU Team in the Inaugural DIHARD Challenge"
+  author_list: Gregory Sell, David Snyder, Alan McCree, Daniel Garcia-Romero, Jesus Villalba, Matthew Maciejewski, Vimal Manohar, Najim Dehak, Daniel Povey, Shinji Watanabe and Sanjeev Khudanpur
+  journal: Interspeech 2018
+  abstract_text: We describe in this paper the experiences of the Johns Hopkins University team during the inaugural DIHARD diarization evaluation. This new task provided microphone recordings in a variety of difficult conditions and challenged researchers to fully consider all speaker activity, without the currently typical practices of unscored collars or ignored overlapping speaker segments. This paper includes details about research decisions made in the process of the evaluation, including explorations of training data, feature bandwidth, speech activity detection, and i-vector versus x-vector representations. The utility of system fusions and domain-specific processing are also considered. In all cases, deeper analyses are presented using the development data, for which truth labels were given during the evaluation, while evaluation scores are only presented for a subset of the systems. Finally, we discuss lessons learned and remaining challenges left for future work within the lens of this new approach to diarization performance measurement.
+  pdf_link: http://www.danielpovey.com/files/2018_interspeech_dihard.pdf
+  code_link:
+  slides_link:
+  poster_link:
+  video_link:
+
+- paper_title: "Fast variational Bayes for heavy-tailed PLDA applied to i-vectors and x-vectors"
+  author_list: Anna Silnova, Niko Brummer, Daniel Garcia-Romero, David Snyder, Lukas Burget
+  journal: Interspeech 2018
+  abstract_text: The standard state-of-the-art backend for text-independent speaker recognizers that use i-vectors or x-vectors, is Gaussian PLDA (G-PLDA), assisted by a Gaussianization step involving length normalization. G-PLDA can be trained with both generative or discriminative methods. It has long been known that heavy-tailed PLDA (HT-PLDA), applied without length normalization, gives similar accuracy, but at considerable extra computational cost. We have recently introduced a fast scoring algorithm for a discriminatively trained HT-PLDA backend. This paper extends that work by introducing a fast, variational Bayes, generative training algorithm. We compare old and new backends, with and without length-normalization, with i-vectors and x-vectors, on SRE'10, SRE'16 and SITW.
+  pdf_link: https://arxiv.org/pdf/1803.09153.pdf
+  code_link: https://github.com/bsxfan/meta-embeddings/tree/master/code/Niko/matlab/clean/VB4HTPLDA
+  slides_link:
+  poster_link:
+  video_link:
+
+- paper_title: "Self-Attentive Speaker Embeddings for Text-Independent Speaker Verification"
+  author_list: Yingke Zhu, Tom Ko, David Snyder, Brian Mak and Dan Povey
+  journal: Interspeech 2018
+  abstract_text:
+  pdf_link:
+  code_link:
+  slides_link:
+  poster_link:
+  video_link:
+
+- paper_title: "Language Recognition for Telephone and Video Speech: The JHU HLTCOE Submission for NIST LRE17"
+  author_list: Alan McCree, David Snyder, Gregory Sell, and Daniel Garcia-Romero
+  journal: Odyssey 2018
+  abstract_text: This paper presents our newest language recognition systems developed for NIST LRE17. For this challenging limited data multidomain task, we were able to get very good performance with our state-of-the-art DNN senone and bottleneck joint ivector systems by effective utilization of all of the available training and development data. Data augmentation techniques were very valuable for this task, and our discriminative Gaussian classifier combined with naive fusion used all of the development data for system design rather than holding some out for separate back-end training. Finally, our newest research with discriminatively-trained DNN embeddings allowed us to replace i-vectors with more powerful x-vectors to further improve language recognition accuracy, resulting in very good LRE17 performance for this single system, our JHU HLTCOE site fusion primary submission, and the JHU MIT team submission.
+  pdf_link: https://www.isca-speech.org/archive/Odyssey_2018/pdfs/70.pdf
+  code_link:
+  slides_link:
+  poster_link:
+  video_link:
+
+- paper_title: "Spoken Language Recognition using X-vectors"
+  author_list: David Snyder, Daniel Garcia-Romero, Alan McCree, Gregory Sell, Daniel Povey, Sanjeev Khudanpur 
+  journal: Odyssey 2018
+  abstract_text: In this paper, we apply x-vectors to the task of spoken language recognition. This framework consists of a deep neural network that maps sequences of speech features to fixed-dimensional embeddings, called x-vectors. Long-term language characteristics are captured in the network by a temporal pooling layer that aggregates information across time. Once extracted, x-vectors utilize the same classification technology developed for i-vectors. In the 2017 NIST language recognition evaluation, x-vectors achieved excellent results and outperformed our state-ofthe-art i-vector systems. In the post-evaluation analysis presented here, we experiment with several variations of the x-vector framework, and find that the best performing system uses multilingual bottleneck features, data augmentation, and a discriminative Gaussian classifier.
+  pdf_link: https://www.isca-speech.org/archive/Odyssey_2018/pdfs/38.pdf
+  code_link:
+  slides_link:
+  poster_link:
+  video_link:
+
 - paper_title: "X-vectors: Robust DNN Embeddings for Speaker Recognition"
   author_list: David Snyder, Daniel Garcia-Romero, Gregory Sell, Daniel Povey, Sanjeev Khudanpur
   journal: IEEE ICASSP 2018
   abstract_text: In this paper, we use data augmentation to improve performance of deep neural network (DNN) embeddings for speaker recognition. The DNN, which is trained to discriminate between speakers, maps variable-length utterances to fixed-dimensional embeddings that we call x-vectors. Prior studies have found that embeddings leverage large-scale training datasets better than i-vectors. However, it can be challenging to collect substantial quantities of labeled data for training. We use data augmentation, consisting of added noise and reverberation, as an inexpensive method to multiply the amount of training data and improve robustness. The x-vectors are compared with i-vector baselines on Speakers in the Wild and NIST SRE 2016 Cantonese. We find that while augmentation is beneficial in the PLDA classifier, it is not helpful in the i-vector extractor. However, the x-vector DNN effectively exploits data augmentation, due to its supervised training. As a result, the x-vectors achieve superior performance on the evaluation datasets.
   pdf_link: http://www.danielpovey.com/files/2018_icassp_xvectors.pdf
   code_link: https://github.com/kaldi-asr/kaldi/tree/master/egs/sre16/v2
+  slides_link:
+  poster_link:
+  video_link:
+
+- paper_title: "Audio-visual Person Recognition In Multimedia Data From The IARPA Janus Program"
+  author_list: Gregory Sell, Kevin Duh, David Snyder, Dave Etter, Daniel Garcia-Romero
+  journal: IEEE ICASSP 2018
+  abstract_text:
+  pdf_link:
+  code_link:
+  slides_link:
+  poster_link:
+  video_link:
+
+- paper_title: "Characterizing Performance Of Speaker Diarization Systems On Far-field Speech Using Standard Methods"
+  author_list: Matthew Maciejewski, David Snyder, Vimal Manohar, Najim Dehak, Sanjeev Khudanpur,
+  journal: IEEE ICASSP 2018
+  abstract_text:
+  pdf_link:
+  code_link:
   slides_link:
   poster_link:
   video_link:
