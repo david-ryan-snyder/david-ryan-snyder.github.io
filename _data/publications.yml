@@ -34,17 +34,6 @@
   video_link:
   best_paper:
 
-- paper_title: "Language Recognition for Telephone and Video Speech: The JHU HLTCOE Submission for NIST LRE17"
-  author_list: Alan McCree, David Snyder, Gregory Sell, and Daniel Garcia-Romero
-  journal: Odyssey 2018
-  abstract_text: This paper presents our newest language recognition systems developed for NIST LRE17. For this challenging limited data multidomain task, we were able to get very good performance with our state-of-the-art DNN senone and bottleneck joint ivector systems by effective utilization of all of the available training and development data. Data augmentation techniques were very valuable for this task, and our discriminative Gaussian classifier combined with naive fusion used all of the development data for system design rather than holding some out for separate back-end training. Finally, our newest research with discriminatively-trained DNN embeddings allowed us to replace i-vectors with more powerful x-vectors to further improve language recognition accuracy, resulting in very good LRE17 performance for this single system, our JHU HLTCOE site fusion primary submission, and the JHU MIT team submission.
-  bibtex:
-  pdf_link: https://www.isca-speech.org/archive/Odyssey_2018/pdfs/70.pdf
-  code_link:
-  slides_link:
-  poster_link:
-  video_link:
-  best_paper:
 
 - paper_title: "Spoken Language Recognition using X-vectors"
   author_list: David Snyder, Daniel Garcia-Romero, Alan McCree, Gregory Sell, Daniel Povey, Sanjeev Khudanpur
@@ -57,6 +46,18 @@
   poster_link:
   video_link:
   best_paper: Y
+
+- paper_title: "Language Recognition for Telephone and Video Speech: The JHU HLTCOE Submission for NIST LRE17"
+  author_list: Alan McCree, David Snyder, Gregory Sell, and Daniel Garcia-Romero
+  journal: Odyssey 2018
+  abstract_text: This paper presents our newest language recognition systems developed for NIST LRE17. For this challenging limited data multidomain task, we were able to get very good performance with our state-of-the-art DNN senone and bottleneck joint ivector systems by effective utilization of all of the available training and development data. Data augmentation techniques were very valuable for this task, and our discriminative Gaussian classifier combined with naive fusion used all of the development data for system design rather than holding some out for separate back-end training. Finally, our newest research with discriminatively-trained DNN embeddings allowed us to replace i-vectors with more powerful x-vectors to further improve language recognition accuracy, resulting in very good LRE17 performance for this single system, our JHU HLTCOE site fusion primary submission, and the JHU MIT team submission.
+  bibtex:
+  pdf_link: https://www.isca-speech.org/archive/Odyssey_2018/pdfs/70.pdf
+  code_link:
+  slides_link:
+  poster_link:
+  video_link:
+  best_paper:
 
 - paper_title: "X-vectors: Robust DNN Embeddings for Speaker Recognition"
   author_list: David Snyder, Daniel Garcia-Romero, Gregory Sell, Daniel Povey, Sanjeev Khudanpur
