@@ -56,7 +56,7 @@
   slides_link:
   poster_link:
   video_link:
-  best_paper:
+  best_paper: Y
 
 - paper_title: "X-vectors: Robust DNN Embeddings for Speaker Recognition"
   author_list: David Snyder, Daniel Garcia-Romero, Gregory Sell, Daniel Povey, Sanjeev Khudanpur
