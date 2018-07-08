@@ -5,40 +5,51 @@ layout: default
 <div class="home">
 
   <h1 class="page-heading">Publications</h1>
-  
+
 	<ul class="post-list publications">
 	{% for publication in site.data.publications %}
-	  <li>
-             <div class="publication-summary">
-		<div class="publication-title">{{ publication.paper_title }}</div>
-		<div class="post-meta">{{ publication.author_list}}</div>
-                <div class="journal">{{ publication.journal }}</div>
-                <div class="show-abstract-{{ forloop.index }} show-abstract"><span id={{ forloop.index }}>Read abstract</span></div>
-                <div class="close-abstract-{{ forloop.index }} close-abstract hidden"><span id={{ forloop.index }}>Close abstract</span></div>
-		<div class="publication-abstract-{{ forloop.index }} publication-abstract hidden">{{ publication.abstract_text }}</div>
-             </div>
-                <div class="publication-links">
-			<ul>
-				{% if publication.pdf_link %}
-				<li><a href={{ publication.pdf_link }} target="_blank" title="PDF Link"><i class="fa fa-file-pdf-o"></i></a></li>
-				{% endif %}
-				{% if publication.code_link %}
-				<li><a href={{ publication.code_link }} target="_blank" title="Code Link"><i class="fa fa-file-code-o"></i></a></li>
-				{% endif %}
-				{% if publication.slides_link %}
-				<li><a href={{ publication.slides_link }} target="_blank" title="Slides Link"><i class="fa fa-file-powerpoint-o"></i></a></li>
-				{% endif %}
-				{% if publication.poster_link %}
-				<li><a href={{ publication.poster_link }} target="_blank" title="Poster Link"><i class="fa fa-tv"></i></a></li>
-				{% endif %}
-				{% if publication.video_link %}
-				<li><a href={{ publication.video_link }} target="_blank" title="Video Link"><i class="fa fa-film"></i></a></li>
-				{% endif %}
-				{% if publication.database %}
-				<li><a href={{ publication.database }} target="_blank" title="Database Link"><i class="fa fa-database"></i></a></li>
-				{% endif %}
-			</ul>
-                </div>
+	  <li  class="single-publication">
+      <div>
+        {% if publication.best_paper %}
+          <div class="ribbon"><span>Best Paper</span></div>
+        {% endif %}
+      <div class="publication-summary">
+	      <div class="publication-title">{{ publication.paper_title }}</div>
+	      <div class="post-meta">{{ publication.author_list}}</div>
+        <div class="journal">{{ publication.journal }}</div>
+        {% if publication.abstract_text %}
+          <div class="show-abstract-{{ forloop.index }} show-abstract"><span id={{ forloop.index }}>Read abstract</span></div>
+          <div class="close-abstract-{{ forloop.index }} close-abstract hidden"><span id={{ forloop.index }}>Close abstract</span></div>
+          <div class="publication-abstract-{{ forloop.index }} publication-abstract hidden">{{ publication.abstract_text }}</div>
+        {% endif %}
+      </div>
+      <div class="publication-links">
+  			<ul>
+  				{% if publication.pdf_link %}
+  				<li><a href={{ publication.pdf_link }} target="_blank" title="PDF Link"><i class="fa fa-file-pdf-o"></i></a></li>
+  				{% endif %}
+  				{% if publication.code_link %}
+  				<li><a href={{ publication.code_link }} target="_blank" title="Code Link"><i class="fa fa-file-code-o"></i></a></li>
+  				{% endif %}
+  				{% if publication.slides_link %}
+  				<li><a href={{ publication.slides_link }} target="_blank" title="Slides Link"><i class="fa fa-file-powerpoint-o"></i></a></li>
+  				{% endif %}
+  				{% if publication.poster_link %}
+  				<li><a href={{ publication.poster_link }} target="_blank" title="Poster Link"><i class="fa fa-tv"></i></a></li>
+  				{% endif %}
+  				{% if publication.video_link %}
+  				<li><a href={{ publication.video_link }} target="_blank" title="Video Link"><i class="fa fa-film"></i></a></li>
+  				{% endif %}
+  				{% if publication.database %}
+  				<li><a href={{ publication.database }} target="_blank" title="Database Link"><i class="fa fa-database"></i></a></li>
+  				{% endif %}
+          {% if publication.bibtex %}
+  				<li><a class="bibtex bibtex-{{ forloop.index }}" id="bibtex-{{ forloop.index }}"><i class="fa fa-quote-right"></i></a></li>
+          {% endif %}
+  			</ul>
+        <div class="text-bibtex-{{ forloop.index }} text-bibtex hidden">{{ publication.bibtex }}</div>
+      </div>
+      </div>
 	  </li>
 	{% endfor %}
 	</ul>
@@ -59,6 +70,9 @@ $(document).ready(function(){
       $(".show-abstract-" + id).show();
       $(".publication-abstract-" + id).addClass("hidden");
     });
+    $(".bibtex").click(function(){
+      let id = $(this).attr('id');
+      $(".text-" + id).toggleClass( "hidden" );
+    });
 });
 </script>
-
