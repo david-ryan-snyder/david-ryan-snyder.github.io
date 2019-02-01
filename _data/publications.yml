@@ -1,3 +1,16 @@
+
+- paper_title: "Speaker Recognition for Multi-speaker Conversations Using X-vectors"
+  author_list:  David Snyder, Daniel Garcia-Romero, Gregory Sell, Alan McCree, Daniel Povey, and Sanjeev Khudanpur
+  journal: IEEE ICASSP 2019
+  abstract_text: Recently, deep neural networks that map utterances to fixed-dimensional embeddings have emerged as the state-of-the-art in speaker recognition. Our prior work introduced x-vectors, an embedding that is very effective for both speaker recognition and diarization. This paper combines our previous work and applies it to the problem of speaker recognition on multi-speaker conversations. We measure performance on Speakers in the Wild and report what we believe are the best published error rates on this dataset. Moreover, we find that diarization substantially reduces error rate when there are multiple speakers, while maintaining excellent performance on single-speaker recordings. Finally, we introduce an easily implemented method to remove the domain-sensitive threshold typically used in the clustering stage of a diarization system. The proposed method is more robust to domain shifts, and achieves similar results to those obtained using a well-tuned threshold.
+  bibtex:
+  pdf_link: http://www.danielpovey.com/files/2019_icassp_multi_speaker.pdf
+  code_link:
+  slides_link:
+  poster_link:
+  video_link:
+  best_paper:
+
 - paper_title: "Diarization is Hard: Some Experiences and Lessons Learned for the JHU Team in the Inaugural DIHARD Challenge"
   author_list: Gregory Sell, David Snyder, Alan McCree, Daniel Garcia-Romero, Jesus Villalba, Matthew Maciejewski, Vimal Manohar, Najim Dehak, Daniel Povey, Shinji Watanabe and Sanjeev Khudanpur
   journal: Interspeech 2018
@@ -63,7 +76,7 @@
   author_list: David Snyder, Daniel Garcia-Romero, Gregory Sell, Daniel Povey, Sanjeev Khudanpur
   journal: IEEE ICASSP 2018
   abstract_text: In this paper, we use data augmentation to improve performance of deep neural network (DNN) embeddings for speaker recognition. The DNN, which is trained to discriminate between speakers, maps variable-length utterances to fixed-dimensional embeddings that we call x-vectors. Prior studies have found that embeddings leverage large-scale training datasets better than i-vectors. However, it can be challenging to collect substantial quantities of labeled data for training. We use data augmentation, consisting of added noise and reverberation, as an inexpensive method to multiply the amount of training data and improve robustness. The x-vectors are compared with i-vector baselines on Speakers in the Wild and NIST SRE 2016 Cantonese. We find that while augmentation is beneficial in the PLDA classifier, it is not helpful in the i-vector extractor. However, the x-vector DNN effectively exploits data augmentation, due to its supervised training. As a result, the x-vectors achieve superior performance on the evaluation datasets.
-  bibtex:
+  bibtex: "@inproceedings{snyder2018xvector, <p> title={X-vectors: Robust DNN Embeddings for Speaker Recognition}, author={Snyder, D. and Garcia-Romero, D. and Sell, G. and Povey, D. and Khudanpur, S.}, booktitle={2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, year={2018}, organization={IEEE}, url = {http://www.danielpovey.com/files/2018_icassp_xvectors.pdf}"
   pdf_link: http://www.danielpovey.com/files/2018_icassp_xvectors.pdf
   code_link: https://github.com/kaldi-asr/kaldi/tree/master/egs/sre16/v2
   slides_link:
